@@ -12,7 +12,6 @@ public class LeetCode_003 {
         int lenth = 0;
         int lastLenth = 0;
         HashMap<Character, Integer> hashMap = new HashMap<Character, Integer>();
-        int j = 0;
         for (int i = 0; i < s.length(); i++){
             char c = s.charAt(i);
             if (hashMap.containsKey(c)){
@@ -20,13 +19,14 @@ public class LeetCode_003 {
                     lastLenth = lenth;
                 }
                 i = hashMap.get(c);
+                if (lastLenth > s.length() - i){
+                    break;
+                }
                 hashMap.clear();
                 continue;
             }
-
             hashMap.put(c,i);
             lenth = hashMap.size();
-
         }
         return lenth > lastLenth ? lenth : lastLenth;
     }
