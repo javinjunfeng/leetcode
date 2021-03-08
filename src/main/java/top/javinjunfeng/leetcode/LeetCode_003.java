@@ -19,9 +19,6 @@ public class LeetCode_003 {
                     lastLenth = lenth;
                 }
                 i = hashMap.get(c);
-                if (lastLenth > s.length() - i){
-                    break;
-                }
                 hashMap.clear();
                 continue;
             }
